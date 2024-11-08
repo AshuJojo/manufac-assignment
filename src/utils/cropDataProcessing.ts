@@ -1,8 +1,9 @@
 import { CROP_DATA_TYPES_KEYS } from "../constants/Constants";
 import { CropDataTypes } from "../types/CropDataType";
+import { YearlyProductionDataType } from "../types/YearlyProductionDataType";
 
 export const getYearlyMaxMinProduction = (data: CropDataTypes[]) => {
-  const result: { year: number; maxCrop: string; minCrop: string }[] = [];
+  const result: YearlyProductionDataType[] = [];
 
   const years = Array.from(
     new Set(data.map((item) => Number(item.Year.split(",")[1])))
@@ -25,11 +26,11 @@ export const getYearlyMaxMinProduction = (data: CropDataTypes[]) => {
         Number(crop[CROP_DATA_TYPES_KEYS.CROP_PRODUCTION]) || 0;
       if (production > maxProduction) {
         maxProduction = production;
-        maxCrop = crop["Crop Name"];
+        maxCrop = crop[CROP_DATA_TYPES_KEYS.CROP_NAME];
       }
       if (production < minProduction && production > 0) {
         minProduction = production;
-        minCrop = crop["Crop Name"];
+        minCrop = crop[CROP_DATA_TYPES_KEYS.CROP_NAME];
       }
     });
 
