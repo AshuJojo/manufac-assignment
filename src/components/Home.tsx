@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      {/* <MaxMinCropTable cropData={cropData} /> */}
+      <MaxMinCropTable cropData={cropData} />
       <AvgCropTable cropData={cropData} />
     </div>
   );

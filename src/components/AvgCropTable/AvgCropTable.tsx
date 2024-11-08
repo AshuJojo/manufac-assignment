@@ -19,15 +19,12 @@ const AvgCropTable = ({ cropData }: AvgCropTableProps): ReactElement => {
 
   useEffect(() => {
     if (cropData && cropData.length > 0) {
-      const avgCropData: (number | string)[][] =
-        getCropAverageData(cropData);
+      const avgCropData: (number | string)[][] = getCropAverageData(cropData);
 
-      console.log('avgCropData', avgCropData);
-
-      //   if (maxMinCrop.length > 0) {
-      //     const newTableData: TableData = { ...tableData, body: maxMinCrop };
-      //     setTableData(newTableData);
-      //   }
+      if (avgCropData.length > 0) {
+        const newTableData: TableData = { ...tableData, body: avgCropData };
+        setTableData(newTableData);
+      }
     }
   }, [cropData]);
 
