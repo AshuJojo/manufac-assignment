@@ -1,4 +1,5 @@
-import { ReactElement, useEffect } from "react";
+import { Table, TableData } from "@mantine/core";
+import { ReactElement, useEffect, useState } from "react";
 import { CropDataTypes } from "../../types/CropDataType";
 import { getYearlyMaxMinProduction } from "../../utils/cropDataProcessing";
 
@@ -7,17 +8,30 @@ interface MaxMinCropTableProps {
 }
 
 const MaxMinCropTable = ({ cropData }: MaxMinCropTableProps): ReactElement => {
+  const [tableData, setTableData] = useState<TableData>({
+    head: [
+      "Year",
+      "Crop with Maximum Production in that Year",
+      "Crop with Minimum Production in that Year",
+    ],
+    body: [],
+  });
+
   useEffect(() => {
-    console.log("MaxMinCropTable/data: ", cropData);
+    if (cropData && cropData.length > 0) {
+      const maxMinCrop: (number | string)[][] =
+        getYearlyMaxMinProduction(cropData);
 
-    const maxMinCrop = getYearlyMaxMinProduction(cropData);
-
-    console.log("maxMinCrop: ", maxMinCrop);
+      if (maxMinCrop.length > 0) {
+        const newTableData: TableData = { ...tableData, body: maxMinCrop };
+        setTableData(newTableData);
+      }
+    }
   }, [cropData]);
 
   if (!cropData || cropData.length === 0) return <></>;
 
-  return <div>MaxMinCropTable</div>;
+  return <Table data={tableData} />;
 };
 
 export default MaxMinCropTable;
