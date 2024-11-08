@@ -1,6 +1,7 @@
 import { CropData } from "../types/CropData";
 import { useEffect, useState } from "react";
 import MaxMinCropTable from "./MaxMinCropTable/MaxMinCropTable";
+import AvgCropTable from "./AvgCropTable/AvgCropTable";
 
 const Home = () => {
   const [cropData, setCropData] = useState<CropData[]>([]);
@@ -13,7 +14,8 @@ const Home = () => {
 
   return (
     <div>
-      <MaxMinCropTable cropData={cropData} />
+      {/* <MaxMinCropTable cropData={cropData} /> */}
+      <AvgCropTable cropData={cropData} />
     </div>
   );
 };
