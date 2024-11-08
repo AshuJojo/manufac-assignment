@@ -1,6 +1,6 @@
 import { CROP_DATA_TYPES_KEYS } from "../constants/Constants";
 
-export interface CropDataTypes {
+export interface CropData {
   Country: string;
   Year: string;
   [CROP_DATA_TYPES_KEYS.CROP_NAME]: string;

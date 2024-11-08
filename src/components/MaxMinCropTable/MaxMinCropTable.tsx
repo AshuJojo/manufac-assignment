@@ -1,10 +1,10 @@
 import { Table, TableData } from "@mantine/core";
 import { ReactElement, useEffect, useState } from "react";
-import { CropDataTypes } from "../../types/CropDataType";
+import { CropData } from "../../types/CropData";
 import { getYearlyMaxMinProduction } from "../../utils/cropDataProcessing";
 
 interface MaxMinCropTableProps {
-  cropData: CropDataTypes[];
+  cropData: CropData[];
 }
 
 const MaxMinCropTable = ({ cropData }: MaxMinCropTableProps): ReactElement => {

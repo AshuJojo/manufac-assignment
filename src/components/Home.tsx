@@ -1,9 +1,9 @@
-import { CropDataTypes } from "../types/CropDataType";
+import { CropData } from "../types/CropData";
 import { useEffect, useState } from "react";
 import MaxMinCropTable from "./MaxMinCropTable/MaxMinCropTable";
 
 const Home = () => {
-  const [cropData, setCropData] = useState<CropDataTypes[]>([]);
+  const [cropData, setCropData] = useState<CropData[]>([]);
 
   useEffect(() => {
     import("../data/data.json").then((data) => {
