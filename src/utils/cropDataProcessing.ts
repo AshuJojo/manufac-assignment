@@ -40,3 +40,38 @@ export const getYearlyMaxMinProduction = (
 
   return result;
 };
+
+export const getCropAverageData = (data: CropData[]): (number | string)[][] => {
+  const result: (number | string)[][] = [];
+  const cropGroups: { [key: string]: CropData[] } = {};
+
+  data.forEach((crop) => {
+    if (!cropGroups[crop[CROP_DATA_TYPES_KEYS.CROP_NAME]]) {
+      cropGroups[crop[CROP_DATA_TYPES_KEYS.CROP_NAME]] = [];
+    }
+    cropGroups[crop[CROP_DATA_TYPES_KEYS.CROP_NAME]].push(crop);
+  });
+
+
+  for (const [cropName, crops] of Object.entries(cropGroups)) {
+    const totalYield: number = crops.reduce(
+      (sum, crop) =>
+        sum + (Number(crop[CROP_DATA_TYPES_KEYS.YIELD_OF_CROPS]) || 0),
+      0
+    );
+    const totalArea: number = crops.reduce(
+      (sum, crop) =>
+        sum + (Number(crop[CROP_DATA_TYPES_KEYS.YIELD_OF_CROPS]) || 0),
+      0
+    );
+    const count: number = crops.length;
+
+    result.push([
+      cropName,
+      parseFloat((totalYield / count).toFixed(3)),
+      parseFloat((totalArea / count).toFixed(3)),
+    ]);
+  }
+
+  return result;
+};

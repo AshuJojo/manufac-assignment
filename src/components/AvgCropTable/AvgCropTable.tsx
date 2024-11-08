@@ -1,6 +1,7 @@
 import { Table, TableData } from "@mantine/core";
 import { ReactElement, useEffect, useState } from "react";
 import { CropData } from "../../types/CropData";
+import { getCropAverageData } from "../../utils/cropDataProcessing";
 
 interface AvgCropTableProps {
   cropData: CropData[];
@@ -18,13 +19,15 @@ const AvgCropTable = ({ cropData }: AvgCropTableProps): ReactElement => {
 
   useEffect(() => {
     if (cropData && cropData.length > 0) {
-    //   const maxMinCrop: (number | string)[][] =
-    //     getYearlyMaxMinProduction(cropData);
+      const avgCropData: (number | string)[][] =
+        getCropAverageData(cropData);
 
-    //   if (maxMinCrop.length > 0) {
-    //     const newTableData: TableData = { ...tableData, body: maxMinCrop };
-    //     setTableData(newTableData);
-    //   }
+      console.log('avgCropData', avgCropData);
+
+      //   if (maxMinCrop.length > 0) {
+      //     const newTableData: TableData = { ...tableData, body: maxMinCrop };
+      //     setTableData(newTableData);
+      //   }
     }
   }, [cropData]);
 
