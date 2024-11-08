@@ -1,6 +1,4 @@
 export const CROP_DATA_TYPES_KEYS = {
-  COUNTRY: "Country",
-  YEAR: "Year",
   CROP_NAME: "Crop Name",
   CROP_PRODUCTION: "Crop Production (UOM:t(Tonnes))",
   YIELD_OF_CROPS: "Yield Of Crops (UOM:Kg/Ha(KilogramperHectare))",
