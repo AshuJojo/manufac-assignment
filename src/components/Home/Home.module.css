@@ -1,6 +1,10 @@
 .tabsList {
+    background-color: white;
+    position: sticky;
+    top: 0px;
     border: 1px solid #a2a2a2;
     border-radius: 50px;
+    font-weight: bold;
     
     & [data-active=true] {
         border-radius: 50px;

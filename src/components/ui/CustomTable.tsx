@@ -1,11 +1,23 @@
-import { Table, TableData } from "@mantine/core";
+import { Container,   Table, TableData } from "@mantine/core";
+import styles from "./CustomTable.module.css";
 
 interface CustomTableProps {
   tableData: TableData;
 }
 
 const CustomTable = ({ tableData }: CustomTableProps) => {
-  return <Table data={tableData} />;
+  return (
+    <Container size="xl" my={10}>
+      <Table
+        className={styles.table}
+        data={tableData}
+        highlightOnHover={true}
+        withTableBorder={true}
+        withColumnBorders={true}
+        withRowBorders={true}
+      />
+    </Container>
+  );
 };
 
 export default CustomTable;
