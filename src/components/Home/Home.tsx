@@ -7,16 +7,21 @@ import styles from "./Home.module.css";
 import { useScrollIntoView } from "@mantine/hooks";
 
 const Home = () => {
+  // Initialize cropData with an empty array.
   const [cropData, setCropData] = useState<CropData[]>([]);
 
+  // used useScrollIntoView hook to get table into view everytime the tab changes
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
 
+  // method to handle tab click 
   const handleTabClick = () => {
     scrollIntoView();
   };
 
+  // lazy load the data.json file on first time component is mounted,
+  // and set the data to cropData state
   useEffect(() => {
     import("../../data/data.json").then((data) => {
       setCropData(data?.default);

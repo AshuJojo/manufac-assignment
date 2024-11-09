@@ -1,6 +1,13 @@
 import { Container,   Table, TableData } from "@mantine/core";
 import styles from "./CustomTable.module.css";
 
+/**
+ * 
+ * 
+ * @interface CustomTableProps
+ * @tableData {TableData} - Table Data organised as Mantine UI tableData format.
+ * 
+ */
 interface CustomTableProps {
   tableData: TableData;
 }
