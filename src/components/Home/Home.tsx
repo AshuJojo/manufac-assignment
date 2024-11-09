@@ -1,5 +1,5 @@
-import AvgCropTable from "../AvgCropTable/AvgCropTable";
-import MaxMinCropTable from "../MaxMinCropTable/MaxMinCropTable";
+import AvgCrop from "../AvgCrop/AvgCrop";
+import MaxMinCrop from "../MaxMinCrop/MaxMinCrop";
 import { CropData } from "../../types/CropData";
 import { useEffect, useState } from "react";
 import { Container, Tabs } from "@mantine/core";
@@ -27,11 +27,11 @@ const Home = () => {
         </Tabs.List>
 
         <Tabs.Panel value="maxMinCrop" my={10}>
-          <MaxMinCropTable cropData={cropData} />
+          <MaxMinCrop cropData={cropData} />
         </Tabs.Panel>
 
         <Tabs.Panel value="avgCrop" my={10}>
-          <AvgCropTable cropData={cropData} />
+          <AvgCrop cropData={cropData} />
         </Tabs.Panel>
       </Tabs>
     </Container>

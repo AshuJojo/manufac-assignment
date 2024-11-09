@@ -1,13 +1,14 @@
-import { Table, TableData } from "@mantine/core";
+import { TableData } from "@mantine/core";
 import { ReactElement, useEffect, useState } from "react";
 import { CropData } from "../../types/CropData";
 import { getCropAverageData } from "../../utils/cropDataProcessing";
+import CustomTable from "../ui/CustomTable";
 
-interface AvgCropTableProps {
+interface AvgCropProps {
   cropData: CropData[];
 }
 
-const AvgCropTable = ({ cropData }: AvgCropTableProps): ReactElement => {
+const AvgCrop = ({ cropData }: AvgCropProps): ReactElement => {
   const [tableData, setTableData] = useState<TableData>({
     head: [
       "Year",
@@ -30,7 +31,7 @@ const AvgCropTable = ({ cropData }: AvgCropTableProps): ReactElement => {
 
   if (!cropData || cropData.length === 0) return <></>;
 
-  return <Table data={tableData} />;
+  return <CustomTable tableData={tableData} />;
 };
 
-export default AvgCropTable;
+export default AvgCrop;
