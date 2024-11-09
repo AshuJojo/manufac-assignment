@@ -15,7 +15,7 @@ const Home = () => {
     offset: 60,
   });
 
-  // method to handle tab click 
+  // method to handle tab click
   const handleTabClick = () => {
     scrollIntoView();
   };
